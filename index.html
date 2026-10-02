@@ -20,6 +20,17 @@
 <body>
   <header><div><strong>Thermal Cuve</strong><p>Gestion des températures de la résidence</p></div><div class="company"><div><strong class="company-name">Alp'Innov</strong><p>Innover pour économiser, préserver pour demain.</p></div><img class="company-logo" src="logo.png" alt="Logo Alp'Innov"></div></header>
   <main>
+    <section id="login" style="max-width:420px;margin:50px auto;padding:24px;background:white;border:1px solid #dce6e9;border-radius:12px" aria-labelledby="login-title">
+      <h1 id="login-title">Connexion</h1>
+      <p class="muted">Connectez-vous pour accéder au tableau de bord.</p>
+      <form id="login-form" style="display:grid;gap:12px">
+        <label>Adresse e-mail<input id="login-email" type="email" autocomplete="username" value="demo@thermalcuve.fr" required></label>
+        <label>Mot de passe<input id="login-password" type="password" autocomplete="current-password" value="demo" required></label>
+        <button class="primary" type="submit">Se connecter</button>
+        <p id="login-error" role="alert" aria-live="polite" style="color:#a32929;min-height:1.4em;margin:0"></p>
+        <p class="notice">Démo : demo@thermalcuve.fr / demo</p>
+      </form>
+    </section>
     <div id="dashboard" hidden>
     <div class="heading"><h1>Résidence Les Tilleuls</h1><span class="online">● Système en ligne</span></div>
     <section class="grid" aria-label="Commandes de chauffage">
