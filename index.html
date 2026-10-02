@@ -6,35 +6,16 @@
   <title>Thermal Cuve — Pilotage thermique</title>
   <link rel="icon" href="logo.png" type="image/png">
   <style>
-    :root{font-family:system-ui,sans-serif;color:#183247;background:#f3f7f8}*{box-sizing:border-box}body{margin:0}header{background:#123d50;color:white;padding:22px max(20px,calc((100% - 1000px)/2));display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}header strong{font-size:1.25rem}header p{margin:3px 0;color:#d1e2e8}.company{display:flex;align-items:center;gap:12px;text-align:right}.company-logo{width:52px;height:52px;object-fit:contain}.company-name{font-size:1.15rem!important}main{max-width:1000px;margin:28px auto;padding:0 18px}.heading{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:18px}h1{font-size:1.55rem;margin:0}.online{color:#24764e;font-weight:650}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:15px}.card{background:white;border:1px solid #dce6e9;border-radius:12px;padding:19px;box-shadow:0 2px 8px #1832470c}.wide{grid-column:1/-1;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}h2{font-size:1.05rem;margin:0 0 10px}.muted{color:#647783;margin:4px 0}.badge{font-size:.8rem;color:#24764e;background:#e8f4ed;padding:4px 9px;border-radius:99px}.badge.warn{color:#995517;background:#fff2df}.zone-head{display:flex;align-items:center;justify-content:space-between;gap:8px}.reading{font-size:1.45rem;color:#176b87;font-weight:700}select,button{font:inherit;padding:8px 10px;border:1px solid #cfdbdf;border-radius:7px;background:white;color:inherit}label{font-size:.9rem}.mode{margin-top:12px}.control{display:flex;align-items:center;gap:10px;margin-top:15px}input[type=range]{flex:1;min-width:80px;accent-color:#176b87}output{min-width:48px;text-align:right;font-weight:700}.actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.primary{background:#176b87;color:white;border-color:#176b87;cursor:pointer}.primary:hover{background:#10566e}#message{min-height:1.5em;color:#24764e;font-weight:600}.notice{font-size:.86rem;color:#647783;margin-top:12px}@media(max-width:520px){main{margin-top:20px}}
-    .solar-summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:14px 0}
-    .solar-metric{background:#f3f8f9;border-radius:9px;padding:13px}
-    .solar-metric strong{display:block;font-size:1.35rem;color:#176b87}
-    .forecast-wrap{overflow-x:auto}
-    .forecast{width:100%;border-collapse:collapse;margin-top:10px;text-align:left}
-    .forecast th,.forecast td{padding:9px;border-bottom:1px solid #e5edef;white-space:nowrap}
-    .forecast th{color:#647783;font-size:.85rem}
-    .forecast td:last-child{font-weight:650;color:#24764e}
+    :root{font-family:system-ui,sans-serif;color:#183247;background:#f3f7f8}*{box-sizing:border-box}body{margin:0}header{background:#123d50;color:white;padding:22px max(20px,calc((100% - 1000px)/2));display:flex;justify-content:space-between;align-items:center;gap:18px}.company{display:flex;align-items:center}.company-name{font-size:1.2rem}.muted{color:#647783;margin:0}.notice{color:#4e6d7c;font-size:.8rem;font-style:italic}.heading{display:flex;justify-content:space-between;align-items:center;gap:12px;margin:18px 0 10px}.online{color:#1d8e5a;font-weight:700;padding:6px 10px;border-radius:999px;background:#eafaf2;display:inline-flex;align-items:center}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px}.card{background:#fff;border:1px solid #dfeaf0;border-radius:12px;padding:18px;box-shadow:0 2px 8px rgba(14,52,68,.04)}.card.wide{grid-column:1 / -1}.zone-head,.actions,.mode{display:flex;align-items:center;justify-content:space-between;gap:10px}.badge{display:inline-flex;padding:6px 10px;border-radius:999px;background:#e9f7ef;color:#1f7d58;font-size:.74rem;font-weight:700}.badge.warn{background:#fff4df;color:#a66a00}.reading{font-size:2rem;font-weight:750;letter-spacing:-.04em;color:#123d50;display:flex;align-items:end;gap:8px}.small{font-size:.85rem}.primary{background:#176b87;border:0;padding:12px 16px;border-radius:10px;color:#fff;font-weight:700;cursor:pointer}.secondary{background:#edf4f7;border:0;padding:10px 14px;border-radius:10px;color:#183247;font-weight:600;cursor:pointer}main{max-width:1000px;margin:0 auto;padding:24px 20px 48px}h1,h2,p{margin-top:0}input[type="range"]{width:100%}input[type="number"],select{width:100%;padding:10px 12px;border:1px solid #c7d7dd;border-radius:9px;background:#fff;font:inherit}label{display:grid;gap:8px;font-weight:600}.range-row{display:grid;grid-template-columns:1fr 64px;gap:10px;align-items:center}.chart{height:140px;border:1px solid #dfeaf0;border-radius:10px;display:flex;align-items:end;gap:10px;padding:12px;background:linear-gradient(180deg,#f5fbfd,#fff)}.bar{flex:1;border-radius:8px 8px 0 0;background:linear-gradient(180deg,#6fbad6,#3d8299)}.bar.alt{background:linear-gradient(180deg,#90d1ae,#4d9d72)}.legend{display:flex;gap:10px;flex-wrap:wrap;font-size:.8rem;color:#647783}.dot{width:10px;height:10px;border-radius:50%;display:inline-block}.solar-summary{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:12px;margin:14px 0}.solar-metric{background:#f3f8f9;border-radius:9px;padding:13px}.solar-metric strong{display:block;font-size:1.35rem;color:#176b87}.forecast-wrap{overflow-x:auto}.forecast{width:100%;border-collapse:collapse;margin-top:10px;text-align:left}.forecast th,.forecast td{padding:9px;border-bottom:1px solid #e5edef;white-space:nowrap}.forecast th{color:#647783;font-size:.85rem}.forecast td:last-child{font-weight:650;color:#24764e}
   </style>
 </head>
 <body>
-  <header><div><strong>Thermal Cuve</strong><p>Gestion des températures de la résidence</p></div><div class="company"><div><strong class="company-name">Alp'Innov</strong><p>Innover pour économiser, préserver pour demain.</p></div><img class="company-logo" src="logo.png" alt="Logo Alp'Innov"></div></header>
+  <header><div><strong>Thermal Cuve</strong><p>Gestion des températures de la résidence</p></div><div class="company"><div><strong class="company-name">Alp'Innov</strong><p>Innover pour économiser, sans surconsommer.</p></div></div></header>
   <main>
-    <section id="login" style="max-width:420px;margin:50px auto;padding:24px;background:white;border:1px solid #dce6e9;border-radius:12px" aria-labelledby="login-title">
-      <h1 id="login-title">Connexion</h1>
-      <p class="muted">Connectez-vous pour accéder au tableau de bord.</p>
-      <form id="login-form" style="display:grid;gap:12px">
-        <label>Adresse e-mail<input id="login-email" type="email" autocomplete="username" required></label>
-        <label>Mot de passe<input id="login-password" type="password" autocomplete="current-password" required></label>
-        <button class="primary" type="submit">Se connecter</button>
-        <p id="login-error" role="alert" aria-live="polite" style="color:#a32929;min-height:1.4em;margin:0"></p>
-        <p class="notice">Démo : demo@thermalcuve.fr / demo</p>
-      </form>
-    </section>
-    <div id="dashboard" hidden>
+    <div id="dashboard">
     <div class="heading"><h1>Résidence Les Tilleuls</h1><span class="online">● Système en ligne</span></div>
     <section class="grid" aria-label="Commandes de chauffage">
-      <article class="card wide"><div><h2>Vue d’ensemble</h2><p class="muted">48 logements · 3 zones · Consigne générale : <strong id="general">20 °C</strong></p></div><div class="reading">8 °C <span style="font-size:.8rem;font-weight:500">extérieur</span></div></article>
+      <article class="card wide"><div><h2>Vue d’ensemble</h2><p class="muted">48 logements · 3 zones · Consigne générale : <strong id="general">20 °C</strong></p></div><div class="reading">8 °<span class="small">C</span></div></article>
       <article class="card wide">
         <div>
           <section aria-labelledby="solar-title">
@@ -65,33 +46,21 @@
           <div class="muted" style="margin:0;">Soit 7 440 € / an (estimation)</div>
         </div>
       </article>
-      <article class="card zone"><div class="zone-head"><h2>Bâtiment A</h2><span class="badge">Normal</span></div><p class="muted">16 logements · Mesurée : 20,4 °C</p><div class="mode"><label for="mode-a">Mode </label><select id="mode-a"><option>Automatique</option><option>Confort</option><option>Éco</option><option>Hors-gel</option></select></div><div class="control"><label for="temp-a">Consigne</label><input id="temp-a" type="range" min="16" max="24" step="0.5" value="20"><output for="temp-a">20 °C</output></div></article>
-      <article class="card zone"><div class="zone-head"><h2>Bâtiment B</h2><span class="badge warn">À vérifier</span></div><p class="muted">18 logements · Mesurée : 19,1 °C</p><div class="mode"><label for="mode-b">Mode </label><select id="mode-b"><option>Automatique</option><option>Confort</option><option>Éco</option><option>Hors-gel</option></select></div><div class="control"><label for="temp-b">Consigne</label><input id="temp-b" type="range" min="16" max="24" step="0.5" value="20"><output for="temp-b">20 °C</output></div></article>
-      <article class="card zone"><div class="zone-head"><h2>Bâtiment C</h2><span class="badge">Normal</span></div><p class="muted">14 logements · Mesurée : 20,0 °C</p><div class="mode"><label for="mode-c">Mode </label><select id="mode-c"><option>Automatique</option><option>Confort</option><option>Éco</option><option>Hors-gel</option></select></div><div class="control"><label for="temp-c">Consigne</label><input id="temp-c" type="range" min="16" max="24" step="0.5" value="20"><output for="temp-c">20 °C</output></div></article>
-      <article class="card wide"><div><h2>Consigne commune</h2><p class="muted">Régler la même température pour les trois bâtiments.</p></div><div class="actions"><label for="all-temp">Température</label><select id="all-temp"></select><button id="apply" class="primary">Appliquer à tous</button></div></article>
+      <article class="card zone"><div class="zone-head"><h2>Bâtiment A</h2><span class="badge">Normal</span></div><p class="muted">16 logements · Mesurée : 20,4 °C</p><div class="mode"><label for="bat-a">Température cible<input id="bat-a" type="range" min="16" max="24" step="0.5" value="20"></label><input type="text" value="20 °C" aria-label="Température Bâtiment A" readonly></div></article>
+      <article class="card zone"><div class="zone-head"><h2>Bâtiment B</h2><span class="badge warn">À vérifier</span></div><p class="muted">18 logements · Mesurée : 19,1 °C</p><div class="mode"><label for="bat-b">Température cible<input id="bat-b" type="range" min="16" max="24" step="0.5" value="19.5"></label><input type="text" value="19,5 °C" aria-label="Température Bâtiment B" readonly></div></article>
+      <article class="card zone"><div class="zone-head"><h2>Bâtiment C</h2><span class="badge">Normal</span></div><p class="muted">14 logements · Mesurée : 20,0 °C</p><div class="mode"><label for="bat-c">Température cible<input id="bat-c" type="range" min="16" max="24" step="0.5" value="20"></label><input type="text" value="20 °C" aria-label="Température Bâtiment C" readonly></div></article>
+      <article class="card wide"><div><h2>Consigne commune</h2><p class="muted">Régler la même température pour les trois bâtiments.</p></div><div class="actions"><label for="all-temp">Température<select id="all-temp"></select></label><button class="primary" id="apply" type="button">Appliquer à tous</button></div></article>
     </section>
-    <p id="message" role="status" aria-live="polite"></p><p class="notice">Prototype d’interface : les commandes ne pilotent pas d’équipements réels. Vérifiez les réglages et les dispositifs de sécurité avec un professionnel avant toute mise en service.</p>
+    <p id="message" role="status" aria-live="polite"></p><p class="notice">Prototype d’interface : les commandes ne pilotent pas d’équipements réels. Vérifiez les réglages et les dispositifs de sécurité.</p>
     </div>
   </main>
   <script>
-    // Simulation côté navigateur uniquement ; ne protège pas de vraies données.
-    document.querySelector('#login-form').addEventListener('submit',event=>{
-      event.preventDefault();
-      const email=document.querySelector('#login-email').value.trim().toLowerCase();
-      const password=document.querySelector('#login-password').value;
-      if(email==='demo@thermalcuve.fr'&&password==='demo'){
-        document.querySelector('#login').hidden=true;
-        document.querySelector('#dashboard').hidden=false;
-      }else{
-        document.querySelector('#login-error').textContent='Identifiants incorrects.';
-      }
-    });
     const sliders=[...document.querySelectorAll('input[type="range"]')];
     const format=value=>`${Number(value).toLocaleString('fr-FR')} °C`;
     sliders.forEach(slider=>slider.addEventListener('input',()=>{slider.nextElementSibling.value=format(slider.value)}));
     const common=document.querySelector('#all-temp');
     for(let t=16;t<=24;t+=.5){const option=document.createElement('option');option.value=t;option.textContent=format(t);if(t===20)option.selected=true;common.append(option)}
-    document.querySelector('#apply').addEventListener('click',()=>{sliders.forEach(slider=>{slider.value=common.value;slider.dispatchEvent(new Event('input'))});document.querySelector('#general').textContent=format(common.value);document.querySelector('#message').textContent=`Consigne ${format(common.value)} appliquée aux trois bâtiments.`});
+    document.querySelector('#apply').addEventListener('click',()=>{sliders.forEach(slider=>{slider.value=common.value;slider.dispatchEvent(new Event('input'))});document.querySelector('#general').textContent=format(common.value)});
     const forecastData=[
       {hour:'12 h',sun:82,production:8.2,consumption:5.4},
       {hour:'13 h',sun:90,production:9.0,consumption:5.2},
