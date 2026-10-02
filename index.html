@@ -28,7 +28,7 @@
         <label>Mot de passe<input id="login-password" type="password" autocomplete="current-password" required></label>
         <button class="primary" type="submit">Se connecter</button>
         <p id="login-error" role="alert" aria-live="polite" style="color:#a32929;min-height:1.4em;margin:0"></p>
-        <p class="notice">Démo : demo@thermohabitat.fr / demo</p>
+        <p class="notice">Démo : demo@thermalcuve.fr / demo</p>
       </form>
     </section>
     <div id="dashboard" hidden>
@@ -79,7 +79,7 @@
       event.preventDefault();
       const email=document.querySelector('#login-email').value.trim().toLowerCase();
       const password=document.querySelector('#login-password').value;
-      if(email==='demo@thermohabitat.fr'&&password==='demo'){
+      if(email==='demo@thermalcuve.fr'&&password==='demo'){
         document.querySelector('#login').hidden=true;
         document.querySelector('#dashboard').hidden=false;
       }else{
